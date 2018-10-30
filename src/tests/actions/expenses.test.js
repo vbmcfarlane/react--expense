@@ -54,17 +54,19 @@ const store = createMockStore({});
        }
      });
 
-//method 1 nested callbacks
-    //  database.ref(`expenses/${actions[0].expense.id}`).once('value').then((snapshot) => {
-    //     expect(snapshot.val()).toEqual(expenseData);
-    //     done();
-    //  }); 
+
 // method2 promise chain
      return database.ref(`expenses/${actions[0].expense.id}`).once('value');
     }).then((snapshot) => {
       expect(snapshot.val()).toEqual(expenseData);
       done();
   });
+
+  //method 1 nested callbacks
+    //  database.ref(`expenses/${actions[0].expense.id}`).once('value').then((snapshot) => {
+    //     expect(snapshot.val()).toEqual(expenseData);
+    //     done();
+    //  }); 
 });
 
 test('should add expense with defaults to database and store', (done) => {

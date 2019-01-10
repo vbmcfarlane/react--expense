@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "author": "Vondy B McFarlane",
+  "license": "MIT",
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",

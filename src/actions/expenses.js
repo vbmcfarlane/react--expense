@@ -48,6 +48,17 @@ export const editExpense = (id, updates) => ({
   updates
 });
 
+// start edit expenses : asynchronous
+
+export const startEditExpense = (id, updates) => {
+  return ( dispatch) =>  {
+    return database.ref(`expenses/${id}`).update(updates).then(()=> {
+      return dispatch(editExpense(id, updates));
+    });
+  };
+
+};
+
 //set expenses
 export const setExpenses = (expenses) => ({
   type: 'SET_EXPENSES',
@@ -56,7 +67,7 @@ export const setExpenses = (expenses) => ({
 });
 
 
-//asynchronous
+// startSetExpenses: asynchronous
  export const startSetExpenses = (expenses) => {
   return(dispatch) => {
       return database.ref('expenses').once('value').then((snapshot) => {

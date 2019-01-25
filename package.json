@@ -1,6 +1,10 @@
 {
   "name": "react-expense-app",
+  "description" : "individualize expense tracking app",
   "version": "1.0.1",
+  "engines": {
+    "node": "8.12.0"
+  },
   "main": "index.js",
   "author": "Vondy B McFarlane",
   "license": "MIT",
